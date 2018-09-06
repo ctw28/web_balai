@@ -1,6 +1,8 @@
+<a href="http://localhost/web_balai/admin/berita/tambah">tambah data</a>
 <?php
-foreach ($data as $row) { 
+foreach ($berita as $row) { 
     echo '<h2>'.$row->judul_berita.'</h2>';
+    echo '<h3>'.$row->nama_kategori.'</h2>';
     echo '<p>'.$row->status.'</p>';
     echo '<p>'.$row->tanggal_publish.'</p>';
     echo '<p>'.$row->by.'</p>';
