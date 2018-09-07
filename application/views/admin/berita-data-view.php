@@ -3,6 +3,7 @@
 foreach ($berita as $row) { 
     echo '<h2>'.$row->judul_berita.'</h2>';
     echo '<h3>'.$row->nama_kategori.'</h2>';
+    echo "<img src= '".base_url()."assets/images/".$row->foto." ' alt ='ini gambar alternatif'>";
     echo '<p>'.$row->status.'</p>';
     echo '<p>'.$row->tanggal_publish.'</p>';
     echo '<p>'.$row->by.'</p>';

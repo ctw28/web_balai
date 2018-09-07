@@ -7,7 +7,7 @@
                 <div class="col-md-12">    
                     <?php echo validation_errors(); ?>
 
-                    <?php echo form_open_multipart('admin/berita_rest', 'class="form-horizontal"', 'role="form"'); ?>
+                    <?php echo form_open_multipart('/admin/berita_rest', 'class="form-horizontal"', 'role="form"'); ?>
 
                     <div class="form-group">
                         <label class="col-md-1 control-label">ID Berita</label>
@@ -35,7 +35,7 @@
                     <div class="form-group">
                         <label class="col-md-1 control-label">Foto Utama<small class="req-sign">*</small></label>
                         <div class="col-sm-6">
-                            <input type="file" class="filestyle" data-buttonbefore="true" id="pic" name="pic">
+                            <input type="file" class="filestyle" data-buttonbefore="true" id="pic" name="pic" required>
                         </div>
                     </div>
 
@@ -50,6 +50,15 @@
                         <label class="col-md-1 control-label">Tambahkan Galeri Foto</label>
                         <div class="col-sm-11">
                             <input type="file" class="filestyle" data-buttonbefore="true" id="pic1" name="pic1[]" multiple>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">Status</label>
+                        <div class="col-sm-11">
+                            <select name="status">
+                                <option value="Publish">Publish</option>
+                                <option value="Draft">Draft</option>
+                            </select>
                         </div>
                     </div>
 
