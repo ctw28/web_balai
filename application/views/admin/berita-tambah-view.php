@@ -9,12 +9,6 @@
 
                     <?php echo form_open_multipart('/admin/berita_rest', 'class="form-horizontal"', 'role="form"'); ?>
 
-                    <div class="form-group">
-                        <label class="col-md-1 control-label">ID Berita</label>
-                        <div class="col-sm-6">
-                            <input type="text" class="form-control" name="id" id="id" readonly />
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label class="col-md-1 control-label">Kategori Berita</label>
@@ -28,8 +22,6 @@
                         <div class="col-sm-6">
                             <input type="text" class="form-control" name="judul" id="judul" placeholder="Masukkan Judul Berita...." parsley-trigger="change"  value="<?php echo set_value('judul', $judul) ?>" required />
                         </div>
-                        <!-- <img src="<?php echo base_url() ?>assets/images/berita/thumbs/thumb_700X700_ladongi 1.JPG"> -->
-
                     </div>
 
                     <div class="form-group">
@@ -46,12 +38,6 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-md-1 control-label">Tambahkan Galeri Foto</label>
-                        <div class="col-sm-11">
-                            <input type="file" class="filestyle" data-buttonbefore="true" id="pic1" name="pic1[]" multiple>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label class="col-md-1 control-label">Status</label>
                         <div class="col-sm-11">

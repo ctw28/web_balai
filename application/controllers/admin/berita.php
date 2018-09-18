@@ -10,7 +10,6 @@ class Berita extends CI_Controller {
 
     function index() {
         $this->load->model('berita_model');
-//        $data['data'] = $this->berita_model->get_semua_berita();
         $data['berita'] = json_decode(file_get_contents('http://localhost/web_balai/admin/berita_rest'));
         $this->load->view('admin/berita-data-view', $data);
     }

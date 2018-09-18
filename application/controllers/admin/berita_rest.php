@@ -24,10 +24,6 @@ class Berita_rest extends REST_Controller {
     }
 
     function index_get() {
-//        $test = $this->uri->segment(3);
-//        if(empty($test)){
-//            redirect('admin/berita');
-//        }
         $berita = $this->berita_model->get_semua_berita()->result();
         $this->response($berita, REST_Controller::HTTP_OK);
     }
@@ -48,11 +44,11 @@ class Berita_rest extends REST_Controller {
     }
 
     function index_put() {
-        
+        //untuk PUT METHOD
     }
 
     function index_delete() {
-        
+        //UNTUK DELETE METHOD
     }
 
     function simpan() {
@@ -64,7 +60,7 @@ class Berita_rest extends REST_Controller {
         $data['id_kategori'] = $this->input->post('kategori');
         $data['judul_berita_seo'] = seo_title($data['judul_berita']);
         $this->berita_model->simpan_berita($data);
-//        if($this->response(REST_Controller::HTTP_CREATED))
+        if($this->response($data, REST_Controller::HTTP_CREATED))
         redirect('admin/berita');
     }
 
@@ -77,7 +73,6 @@ class Berita_rest extends REST_Controller {
 
         if (!$this->upload->do_upload('pic')) {
             $this->form_validation->set_message('do_upload', 'Gambar harus JPG/PNG dengan ukuran Maks. 1MB');
-//            $error = array('error' => $this->upload->display_errors());
             return false;
         } else {
             $data = $this->upload->data();

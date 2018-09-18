@@ -1,17 +1,39 @@
-<ul>
-    <?php
-    foreach ($menu as $row) { 
-        $submenu = $this->db->get_where('t_menu_website', array('is_main_menu'=>$row->id_menu));
-        if($submenu->num_rows()>0){
-            echo "<li>".anchor(base_url().$row->link,$row->nama_menu)."<ul>";
-            foreach ($submenu->result() as $value) {
-                echo "<li>". anchor(base_url().$row->link."/".$value->link,$value->nama_menu)."</li>";                    
-            }
-            echo "</ul></li>";
-        }
-        else{
-            echo anchor(base_url().$row->link,"<li>".$row->nama_menu."</li>");        
-        }
-    }
-    ?>
-</ul>    
+<html>
+    <head>
+        <title>BWS SULAWESI IV KENDARI</title>
+    </head>
+    <body ng-app="menu" ng-controller="menuController">
+        <ul>
+            <li ng-repeat="menu in menuData">{{menu.nama_menu}}
+                <ul>
+                    <li ng-repeat="submenu in menu.sub_menu">{{submenu.nama_sub}}</li>
+                </ul>
+            </li>
+        </ul>    
+        <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js'></script>
+    
+    <script>
+        var app = angular.module('menu', []);
+        
+        app.controller('menuController', function($scope, $http){
+            $http.get('http://localhost/web_balai/index.php/data/rest_menu')
+                    .then(function(myData){
+                        console.log(myData);
+                        $scope.menuData = myData.data;
+                    });
+            
+        });
+        
+        
+    </script>
+    </body>
+</html>
+
+<!--<div ng-repeat="(key, value) in travelSchedules">
+    <h1>{{key}}</h1>
+    <table>
+      <tr ng-repeat="row in value">
+        ...
+      </tr>
+    </table>
+</div>-->
