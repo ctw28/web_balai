@@ -1,0 +1,12 @@
+<div>
+    <div ng-repeat="news in $ctrl.newsData">
+        <div>
+            <img src='assets/images/{{news.foto}}' alt={{news.foto}}" style="width:100px;">                    
+        </div>
+        <h2>{{news.judul_berita | uppercase}}</h2>
+        <span>{{news.nama_kategori}}</span>
+        <p>
+            {{news.isi_berita}}
+        </p>
+    </div>
+</div>

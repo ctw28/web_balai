@@ -1,0 +1,8 @@
+
+<ul>
+    <li ng-repeat="menu in $ctrl.menuData ">{{menu.nama_menu}}
+        <ul>
+            <li ng-repeat="submenu in menu.sub_menu | filter:$ctrl.query">{{submenu.nama_sub}}</li>
+        </ul>
+    </li>
+</ul>
