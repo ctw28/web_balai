@@ -8,10 +8,13 @@
         <script type="text/javascript" src="app/berita/berita-list.component.js"></script>
         <script type="text/javascript" src="app/menu/menu-list.module.js"></script>
         <script type="text/javascript" src="app/menu/menu-list.component.js"></script>
+        <script type="text/javascript" src="app/banner/banner-list.module.js"></script>
+        <script type="text/javascript" src="app/banner/banner-list.component.js"></script>
     </head>
     <body>
 
         <menu-list></menu-list>
+        <banner-list></banner-list>
 
         <news-list></news-list>
         

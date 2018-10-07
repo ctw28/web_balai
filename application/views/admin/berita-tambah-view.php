@@ -39,6 +39,27 @@
                     </div>
 
                     <div class="form-group">
+                        <label class="col-md-1 control-label">Tambahkan Galeri Foto</label>
+                        <div class="col-sm-11">
+                            <input type="file" class="filestyle" data-buttonbefore="true" id="pic1" name="pic1[]" multiple>
+                        </div>
+                        <div id="show_upload">
+                            <?php
+                            if ($status == "edit") {
+                                foreach ($galeri_foto->result() as $row) {
+                                    ?>
+                                    <img class="img-prev" src='<?php echo base_url() ?>assets/images/berita/galeri-berita/thumb_300X300_<?php echo $row->foto ?>' width='200px'>
+                                    <a href="<?php echo base_url() ?>index.php/admin/data_berita/hapus_foto_galeri/<?php echo $row->id_berita_foto ?>">Hapus</a>                      
+
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>                    
+
+
+                    <div class="form-group">
                         <label class="col-md-1 control-label">Status</label>
                         <div class="col-sm-11">
                             <select name="status">
@@ -61,3 +82,28 @@
         </div><!-- end card-box -->
     </div><!-- end col-sm-12 -->
 </div><!-- end row -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('#pic1').on('change', function (e) {
+        var files = e.target.files;
+        var id = 0;
+        $.each(files, function (i, file) {
+            id++;
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function (e) { 
+                
+                var template = '<input type="button" value="Hapus" OnClick="hapus('+id+')" id="id"><p id="img_' + id + '"><img class="prev_image" src="' + e.target.result + '"></p>';
+                $('#show_upload').append(template);
+            };
+        });
+    });
+
+
+    function hapus(id) {
+        $('#img_' + id).remove();
+        console.log(id);
+    }
+
+</script>

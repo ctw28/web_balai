@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('home', ['newsList','menuList']);
+angular.module('home', ['newsList','menuList','bannerList']);
 
 //var app = angular.module('home', []);
 //
